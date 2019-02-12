@@ -16,9 +16,14 @@ view: dates {
     sql: ${TABLE}.Date ;;
   }
 
+  dimension: Join_Key {
+    sql: ${TABLE}.Date;;
+  }
+
 
 
   dimension: mtd_raw {
+    hidden: yes
     type: number
     sql: ${TABLE}.MTD ;;
   }
@@ -30,6 +35,7 @@ view: dates {
   }
 
   dimension: qtd_raw {
+    hidden: yes
     type: number
     sql: ${TABLE}.QTD ;;
   }
@@ -41,6 +47,7 @@ view: dates {
   }
 
   dimension: sales {
+    hidden: yes
     type: number
     sql: ${TABLE}.Sales ;;
   }
@@ -52,6 +59,7 @@ view: dates {
   }
 
   dimension: ytd_raw {
+    hidden: yes
     sql: ${TABLE}.YTD ;;
   }
 

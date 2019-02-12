@@ -26,9 +26,12 @@ view: derived_table {
     sql: ${TABLE}.Date ;;
   }
 
-
+  dimension: Join_Key {
+    sql: ${TABLE}.Date;;
+  }
 
   dimension: mtd_raw {
+    hidden: yes
     type: number
     sql: ${TABLE}.mtd_raw ;;
   }
@@ -40,6 +43,7 @@ view: derived_table {
   }
 
   dimension: qtd_raw {
+    hidden: yes
     type: number
     sql: ${TABLE}.qtd_raw ;;
   }
@@ -51,6 +55,7 @@ view: derived_table {
   }
 
   dimension: sales {
+    hidden: yes
     type: number
     sql: ${TABLE}.total_sales ;;
   }
@@ -62,6 +67,7 @@ view: derived_table {
   }
 
   dimension: ytd_raw {
+    hidden: yes
     sql: ${TABLE}.ytd_raw ;;
   }
 
