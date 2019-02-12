@@ -24,7 +24,9 @@ view: dates {
   }
 
   measure: mtd {
+    type: number
     sql: max(${mtd_raw}) ;;
+    value_format_name: usd
   }
 
   dimension: qtd_raw {
@@ -33,7 +35,9 @@ view: dates {
   }
 
   measure: qtd {
+    type: number
     sql: max(${qtd_raw}) ;;
+    value_format_name: usd
   }
 
   dimension: sales {
@@ -52,7 +56,9 @@ view: dates {
   }
 
   measure: ytd {
+    type: number
     sql: max(${ytd_raw}) ;;
+    value_format_name: usd
   }
 
 }

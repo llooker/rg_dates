@@ -5,8 +5,8 @@ view: derived_table {
         max(MTD) as mtd_raw,
         max(QTD) as qtd_raw,
         max(YTD) as ytd_raw,
-        sum(Sales) as total_sales,
-      FROM ecomm.order_items
+        sum(Sales) as total_sales
+      FROM rob.RGExample
       GROUP BY Date
        ;;
   }
@@ -30,25 +30,29 @@ view: derived_table {
 
   dimension: mtd_raw {
     type: number
-    sql: ${TABLE}.MTD ;;
+    sql: ${TABLE}.mtd_raw ;;
   }
 
   measure: mtd {
+    type: number
     sql: max(${mtd_raw}) ;;
+    value_format_name: usd
   }
 
   dimension: qtd_raw {
     type: number
-    sql: ${TABLE}.QTD ;;
+    sql: ${TABLE}.qtd_raw ;;
   }
 
   measure: qtd {
+    type: number
     sql: max(${qtd_raw}) ;;
+    value_format_name: usd
   }
 
   dimension: sales {
     type: number
-    sql: ${TABLE}.Sales ;;
+    sql: ${TABLE}.total_sales ;;
   }
 
   measure: total_sales {
@@ -62,7 +66,9 @@ view: derived_table {
   }
 
   measure: ytd {
+    type: number
     sql: max(${ytd_raw}) ;;
+    value_format_name: usd
   }
 
 
