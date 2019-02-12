@@ -17,5 +17,3 @@ explore: dates {
     sql_on: ${dates.Join_Key} = ${derived_table.Join_Key} ;;
   }
 }
-
-explore: derived_table {}
