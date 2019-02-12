@@ -10,6 +10,12 @@ datagroup: rg_dates_example_default_datagroup {
 
 persist_with: rg_dates_example_default_datagroup
 
-explore: dates {}
+explore: dates {
+  join: derived_table {
+    view_label: "Dates"
+    relationship: one_to_one
+    sql_on: ${dates.Join_Key} = ${derived_table.Join_Key} ;;
+  }
+}
 
 explore: derived_table {}

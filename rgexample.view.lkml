@@ -1,7 +1,7 @@
 view: dates {
   sql_table_name: rob.RGExample ;;
 
-  dimension_group: date {
+  dimension_group: finance {
     type: time
     timeframes: [
       raw,
@@ -17,6 +17,7 @@ view: dates {
   }
 
   dimension: Join_Key {
+    hidden: yes
     sql: ${TABLE}.Date;;
   }
 
@@ -29,6 +30,7 @@ view: dates {
   }
 
   measure: mtd {
+    group_label: "Sales Metrics"
     type: number
     sql: max(${mtd_raw}) ;;
     value_format_name: usd
@@ -41,6 +43,7 @@ view: dates {
   }
 
   measure: qtd {
+    group_label: "Sales Metrics"
     type: number
     sql: max(${qtd_raw}) ;;
     value_format_name: usd
@@ -53,6 +56,7 @@ view: dates {
   }
 
   measure: total_sales {
+    group_label: "Sales Metrics"
     type: sum
     value_format_name: usd
     sql: ${sales} ;;
@@ -64,6 +68,7 @@ view: dates {
   }
 
   measure: ytd {
+    group_label: "Sales Metrics"
     type: number
     sql: max(${ytd_raw}) ;;
     value_format_name: usd
