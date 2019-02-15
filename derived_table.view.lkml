@@ -47,7 +47,7 @@ view: derived_table {
     group_label: "LY Sales Metrics"
     label: "LY MTD"
     type: number
-    sql: max(${mtd_raw}) ;;
+    sql: coalesce(max(${mtd_raw}),0) ;;
     value_format_name: usd
   }
 
@@ -61,7 +61,7 @@ view: derived_table {
     group_label: "LY Sales Metrics"
     label: "LY QTD"
     type: number
-    sql: max(${qtd_raw}) ;;
+    sql: coalesce(max(${qtd_raw}),0) ;;
     value_format_name: usd
   }
 
@@ -76,15 +76,8 @@ view: derived_table {
     label: "LY Total Sales"
     type: sum
     value_format_name: usd
-    sql: ${sales} ;;
+    sql: coalesce(${sales},0) ;;
   }
-
-#   measure: LY_total_sales {
-#     label: "LY Total Sales"
-#     type: number
-#     value_format_name: usd
-#     sql: max(${sales}) ;;
-#   }
 
 
   dimension: ytd_raw {
@@ -96,7 +89,7 @@ view: derived_table {
     group_label: "LY Sales Metrics"
     label: "LYTD"
     type: number
-    sql: max(${ytd_raw}) ;;
+    sql: coalesce(max(${ytd_raw}),0) ;;
     value_format_name: usd
   }
 
